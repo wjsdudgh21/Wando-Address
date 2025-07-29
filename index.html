@@ -93,7 +93,7 @@
                         <div class="text-sm font-bold text-amber-600">점심 식사</div>
                         <h2 class="text-2xl font-bold text-gray-900">대박집</h2>
                         <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('대박집', '전남 완도군 완도읍 개포로62번길 9-10')">전남 완도군 완도읍 개포로62번길 9-10</p>
-                        <a href="tel:061-555-3690" class="text-base text-gray-600 mt-1 block clickable">📞 061-555-3690</a>
+                        <a href="tel:061-555-3690" class="text-base text-gray-600 mt-1 block clickable">� 061-555-3690</a>
                     </div>
                 </div>
             </div>
@@ -174,7 +174,7 @@
             <div class="space-y-3">
                 <a id="tmapLink" href="#" target="_blank" class="block w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">티맵</a>
                 <a id="kakaoNaviLink" href="#" target="_blank" class="block w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-4 rounded-lg transition-colors">카카오네비</a>
-                <a id="googleMapLink" href="#" target="_blank" class="block w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-4 rounded-lg transition-colors">구글지도</a>
+                <a id="googleMapLink" href="#" target="_blank" class="block w-full bg-gray-200 hover:bg-gray-800 font-bold py-3 px-4 rounded-lg transition-colors">구글지도</a>
             </div>
             <div class="mt-5 pt-5 border-t">
                  <button id="copyButton" class="w-full text-blue-600 hover:text-blue-800 font-semibold py-2">주소 복사하기</button>
@@ -211,8 +211,8 @@
             
             // 내비게이션 앱별 URL Scheme 설정
             document.getElementById('tmapLink').href = `tmap://search?name=${encodedName}`;
-            // 카카오내비 URL 스킴을 'navigate'로 변경하여 안정성 향상
-            document.getElementById('kakaoNaviLink').href = `kakaonavi-sdk://navigate?destination.name=${encodedName}`;
+            // 카카오내비 URL 스킴을 'search'로 변경하여 호환성 문제 해결
+            document.getElementById('kakaoNaviLink').href = `kakaonavi-sdk://search?q=${encodedName}`;
             document.getElementById('googleMapLink').href = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
             
             document.getElementById('mapModal').classList.remove('hidden');
