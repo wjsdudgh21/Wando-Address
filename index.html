@@ -205,13 +205,15 @@
         function openMapModal(name, address) {
             currentAddressForModal = address;
             const encodedName = encodeURIComponent(name);
+            const encodedAddress = encodeURIComponent(address);
 
             document.getElementById('modalAddress').textContent = address;
             
             // 내비게이션 앱별 URL Scheme 설정
             document.getElementById('tmapLink').href = `tmap://search?name=${encodedName}`;
-            document.getElementById('kakaoNaviLink').href = `kakaonavi-sdk://search?q=${encodedName}`;
-            document.getElementById('googleMapLink').href = `https://www.google.com/maps/search/?api=1&query=${encodedName}`;
+            // 카카오내비 URL 스킴을 'navigate'로 변경하여 안정성 향상
+            document.getElementById('kakaoNaviLink').href = `kakaonavi-sdk://navigate?destination.name=${encodedName}`;
+            document.getElementById('googleMapLink').href = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
             
             document.getElementById('mapModal').classList.remove('hidden');
         }
