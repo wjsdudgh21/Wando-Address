@@ -34,15 +34,32 @@
         .clickable:hover {
             color: #2563eb; /* blue-600 */
         }
+        /* 모달이 숨겨져 있을 때 */
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center py-10 px-4">
     <!-- 모바일 화면 비율에 맞춘 컨테이너 -->
     <div class="w-full max-w-sm bg-white rounded-2xl shadow-xl p-6 transform transition-all duration-500">
         <!-- 헤더 -->
-        <div class="text-center mb-10">
+        <div class="text-center mb-8">
             <h1 class="text-3xl font-extrabold text-gray-800 tracking-tight">완도 선교 여정</h1>
             <p class="text-base text-gray-500 mt-2">Wando Mission Trip Itinerary</p>
+        </div>
+
+        <!-- 이용 안내 문구 -->
+        <div class="bg-blue-50 border-l-4 border-blue-400 text-blue-800 p-4 rounded-md mb-8" role="alert">
+            <div class="flex">
+                <div class="py-1">
+                    <svg class="fill-current h-6 w-6 text-blue-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 20a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm-1-11a1 1 0 0 0-1 1v4a1 1 0 0 0 2 0v-4a1 1 0 0 0-1-1zm1-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>
+                </div>
+                <div>
+                    <p class="font-bold">이용 안내</p>
+                    <p class="text-sm">주소를 터치하면 지도 앱을 선택할 수 있고, 전화번호를 터치하면 통화가 연결됩니다.</p>
+                </div>
+            </div>
         </div>
 
         <!-- 여정 타임라인 -->
@@ -59,7 +76,7 @@
                     <div class="ml-5">
                         <div class="text-sm font-bold text-sky-600">출발지</div>
                         <h2 class="text-2xl font-bold text-gray-900">한성교회</h2>
-                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="handleAddressClick(event, '서울 양천구 신정로13길 21')">서울 양천구 신정로13길 21</p>
+                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('서울 양천구 신정로13길 21')">서울 양천구 신정로13길 21</p>
                     </div>
                 </div>
             </div>
@@ -75,7 +92,7 @@
                     <div class="ml-5">
                         <div class="text-sm font-bold text-amber-600">점심 식사</div>
                         <h2 class="text-2xl font-bold text-gray-900">대박집</h2>
-                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="handleAddressClick(event, '전남 완도군 완도읍 개포로62번길 9-10')">전남 완도군 완도읍 개포로62번길 9-10</p>
+                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('전남 완도군 완도읍 개포로62번길 9-10')">전남 완도군 완도읍 개포로62번길 9-10</p>
                         <a href="tel:061-555-3690" class="text-base text-gray-600 mt-1 block clickable">📞 061-555-3690</a>
                     </div>
                 </div>
@@ -92,7 +109,7 @@
                     <div class="ml-5">
                         <div class="text-sm font-bold text-blue-700">완도항 (소안도 방면)</div>
                         <h2 class="text-2xl font-bold text-gray-900">화흥포항</h2>
-                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="handleAddressClick(event, '전남 완도군 완도읍 정도리 830-12')">전남 완도군 완도읍 정도리 830-12</p>
+                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('전남 완도군 완도읍 정도리 830-12')">전남 완도군 완도읍 정도리 830-12</p>
                     </div>
                 </div>
             </div>
@@ -108,7 +125,7 @@
                     <div class="ml-5">
                         <div class="text-sm font-bold text-emerald-600">선교 목적지</div>
                         <h2 class="text-2xl font-bold text-gray-900">소안동부교회</h2>
-                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="handleAddressClick(event, '전남 완도군 소안면 소안북로 202-16')">전남 완도군 소안면 소안북로 202-16</p>
+                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('전남 완도군 소안면 소안북로 202-16')">전남 완도군 소안면 소안북로 202-16</p>
                     </div>
                 </div>
             </div>
@@ -124,7 +141,7 @@
                     <div class="ml-5">
                         <div class="text-sm font-bold text-violet-600">숙소</div>
                         <h2 class="text-2xl font-bold text-gray-900">소안미라펜션</h2>
-                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="handleAddressClick(event, '전남 완도군 소안면 소안로 567')">전남 완도군 소안면 소안로 567</p>
+                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('전남 완도군 소안면 소안로 567')">전남 완도군 소안면 소안로 567</p>
                         <a href="tel:061-552-4711" class="text-base text-gray-600 mt-1 block clickable">📞 061-552-4711</a>
                     </div>
                 </div>
@@ -141,11 +158,28 @@
                     <div class="ml-5">
                         <div class="text-sm font-bold text-gray-600">소안도항 (복귀 시)</div>
                         <h2 class="text-2xl font-bold text-gray-900">소안항</h2>
-                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="handleAddressClick(event, '전남 완도군 소안면 소안로 6')">전남 완도군 소안면 소안로 6</p>
+                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('전남 완도군 소안면 소안로 6')">전남 완도군 소안면 소안로 6</p>
                     </div>
                 </div>
             </div>
 
+        </div>
+    </div>
+
+    <!-- 지도 선택 모달 -->
+    <div id="mapModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
+        <div class="bg-white rounded-2xl shadow-xl p-6 w-full max-w-xs text-center">
+            <h3 class="text-xl font-bold mb-2">어떤 지도로 보실까요?</h3>
+            <p id="modalAddress" class="text-sm text-gray-600 mb-5"></p>
+            <div class="space-y-3">
+                <a id="naverMapLink" href="#" target="_blank" class="block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">네이버 지도</a>
+                <a id="kakaoMapLink" href="#" target="_blank" class="block w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-4 rounded-lg transition-colors">카카오맵</a>
+                <a id="googleMapLink" href="#" target="_blank" class="block w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-4 rounded-lg transition-colors">Google 지도</a>
+            </div>
+            <div class="mt-5 pt-5 border-t">
+                 <button id="copyButton" class="w-full text-blue-600 hover:text-blue-800 font-semibold py-2">주소 복사하기</button>
+            </div>
+            <button onclick="closeMapModal()" class="mt-2 text-sm text-gray-500 hover:text-gray-700">닫기</button>
         </div>
     </div>
 
@@ -159,21 +193,35 @@
         function showToast(message) {
             const toast = document.getElementById('toast');
             toast.textContent = message;
-            toast.classList.remove('opacity-0');
-            // 2초 후에 메시지 숨김
+            toast.style.opacity = 1;
             setTimeout(() => {
-                toast.classList.add('opacity-0');
+                toast.style.opacity = 0;
             }, 2000);
         }
 
-        // 주소 클릭 처리 함수
-        function handleAddressClick(event, address) {
-            event.preventDefault(); // 기본 동작(링크 이동 등)을 막음
+        // --- 지도 선택 모달 관련 함수 ---
+        let currentAddressForModal = '';
 
-            // 1. 주소 클립보드에 복사 (iframe 환경 호환성을 위해 execCommand 사용)
+        function openMapModal(address) {
+            currentAddressForModal = address;
+            const encodedAddress = encodeURIComponent(address);
+
+            document.getElementById('modalAddress').textContent = address;
+            document.getElementById('naverMapLink').href = `nmap://search?query=${encodedAddress}`;
+            document.getElementById('kakaoMapLink').href = `kakaomap://search?q=${encodedAddress}`;
+            document.getElementById('googleMapLink').href = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+            
+            document.getElementById('mapModal').classList.remove('hidden');
+        }
+
+        function closeMapModal() {
+            document.getElementById('mapModal').classList.add('hidden');
+        }
+
+        function copyAddress(address) {
             const textarea = document.createElement('textarea');
             textarea.value = address;
-            textarea.style.position = 'fixed'; // 화면에 보이지 않게 처리
+            textarea.style.position = 'fixed';
             textarea.style.left = '-9999px';
             document.body.appendChild(textarea);
             textarea.select();
@@ -181,22 +229,24 @@
                 document.execCommand('copy');
                 showToast('주소가 클립보드에 복사되었습니다.');
             } catch (err) {
-                console.error('주소 복사에 실패했습니다.', err);
-                showToast('오류: 주소를 복사할 수 없습니다.');
+                console.error('주소 복사 실패:', err);
+                showToast('오류: 주소 복사에 실패했습니다.');
             }
             document.body.removeChild(textarea);
-
-            // 2. 모바일 지도 앱으로 연결
-            // 주소를 URL에 맞게 인코딩
-            const encodedAddress = encodeURIComponent(address);
-            // 안드로이드, iOS 모두에서 잘 동작하는 범용 지도 링크
-            const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
-            
-            // 약간의 딜레이 후 지도 앱 실행 (복사 메시지를 확인 할 수 있도록)
-            setTimeout(() => {
-                window.open(mapUrl, '_blank');
-            }, 300);
+            setTimeout(closeMapModal, 300); // 복사 후 모달 닫기
         }
+
+        // 복사 버튼 이벤트 리스너 설정
+        document.getElementById('copyButton').addEventListener('click', () => {
+            copyAddress(currentAddressForModal);
+        });
+
+        // 모달 바깥 영역 클릭 시 닫기
+        document.getElementById('mapModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeMapModal();
+            }
+        });
     </script>
 </body>
 </html>
