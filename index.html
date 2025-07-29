@@ -57,7 +57,7 @@
                 </div>
                 <div>
                     <p class="font-bold">이용 안내</p>
-                    <p class="text-sm">주소를 터치하면 지도 앱을 선택할 수 있고, 전화번호를 터치하면 통화가 연결됩니다.</p>
+                    <p class="text-sm">주소를 터치하면 내비게이션 앱을 선택할 수 있고, 전화번호를 터치하면 통화가 연결됩니다.</p>
                 </div>
             </div>
         </div>
@@ -76,7 +76,7 @@
                     <div class="ml-5">
                         <div class="text-sm font-bold text-sky-600">출발지</div>
                         <h2 class="text-2xl font-bold text-gray-900">한성교회</h2>
-                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('서울 양천구 신정로13길 21')">서울 양천구 신정로13길 21</p>
+                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('한성교회', '서울 양천구 신정로13길 21')">서울 양천구 신정로13길 21</p>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                     <div class="ml-5">
                         <div class="text-sm font-bold text-amber-600">점심 식사</div>
                         <h2 class="text-2xl font-bold text-gray-900">대박집</h2>
-                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('전남 완도군 완도읍 개포로62번길 9-10')">전남 완도군 완도읍 개포로62번길 9-10</p>
+                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('대박집', '전남 완도군 완도읍 개포로62번길 9-10')">전남 완도군 완도읍 개포로62번길 9-10</p>
                         <a href="tel:061-555-3690" class="text-base text-gray-600 mt-1 block clickable">📞 061-555-3690</a>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                     <div class="ml-5">
                         <div class="text-sm font-bold text-blue-700">완도항 (소안도 방면)</div>
                         <h2 class="text-2xl font-bold text-gray-900">화흥포항</h2>
-                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('전남 완도군 완도읍 정도리 830-12')">전남 완도군 완도읍 정도리 830-12</p>
+                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('화흥포항', '전남 완도군 완도읍 정도리 830-12')">전남 완도군 완도읍 정도리 830-12</p>
                     </div>
                 </div>
             </div>
@@ -125,7 +125,7 @@
                     <div class="ml-5">
                         <div class="text-sm font-bold text-emerald-600">선교 목적지</div>
                         <h2 class="text-2xl font-bold text-gray-900">소안동부교회</h2>
-                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('전남 완도군 소안면 소안북로 202-16')">전남 완도군 소안면 소안북로 202-16</p>
+                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('소안동부교회', '전남 완도군 소안면 소안북로 202-16')">전남 완도군 소안면 소안북로 202-16</p>
                     </div>
                 </div>
             </div>
@@ -141,7 +141,7 @@
                     <div class="ml-5">
                         <div class="text-sm font-bold text-violet-600">숙소</div>
                         <h2 class="text-2xl font-bold text-gray-900">소안미라펜션</h2>
-                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('전남 완도군 소안면 소안로 567')">전남 완도군 소안면 소안로 567</p>
+                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('소안미라펜션', '전남 완도군 소안면 소안로 567')">전남 완도군 소안면 소안로 567</p>
                         <a href="tel:061-552-4711" class="text-base text-gray-600 mt-1 block clickable">📞 061-552-4711</a>
                     </div>
                 </div>
@@ -158,7 +158,7 @@
                     <div class="ml-5">
                         <div class="text-sm font-bold text-gray-600">소안도항 (복귀 시)</div>
                         <h2 class="text-2xl font-bold text-gray-900">소안항</h2>
-                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('전남 완도군 소안면 소안로 6')">전남 완도군 소안면 소안로 6</p>
+                        <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('소안항', '전남 완도군 소안면 소안로 6')">전남 완도군 소안면 소안로 6</p>
                     </div>
                 </div>
             </div>
@@ -169,12 +169,12 @@
     <!-- 지도 선택 모달 -->
     <div id="mapModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
         <div class="bg-white rounded-2xl shadow-xl p-6 w-full max-w-xs text-center">
-            <h3 class="text-xl font-bold mb-2">어떤 지도로 보실까요?</h3>
+            <h3 class="text-xl font-bold mb-2">어떤 앱으로 길안내 할까요?</h3>
             <p id="modalAddress" class="text-sm text-gray-600 mb-5"></p>
             <div class="space-y-3">
-                <a id="naverMapLink" href="#" target="_blank" class="block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">네이버 지도</a>
-                <a id="kakaoMapLink" href="#" target="_blank" class="block w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-4 rounded-lg transition-colors">카카오맵</a>
-                <a id="googleMapLink" href="#" target="_blank" class="block w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-4 rounded-lg transition-colors">Google 지도</a>
+                <a id="tmapLink" href="#" target="_blank" class="block w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">티맵</a>
+                <a id="kakaoNaviLink" href="#" target="_blank" class="block w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-4 rounded-lg transition-colors">카카오네비</a>
+                <a id="googleMapLink" href="#" target="_blank" class="block w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-4 rounded-lg transition-colors">구글지도</a>
             </div>
             <div class="mt-5 pt-5 border-t">
                  <button id="copyButton" class="w-full text-blue-600 hover:text-blue-800 font-semibold py-2">주소 복사하기</button>
@@ -202,14 +202,16 @@
         // --- 지도 선택 모달 관련 함수 ---
         let currentAddressForModal = '';
 
-        function openMapModal(address) {
+        function openMapModal(name, address) {
             currentAddressForModal = address;
-            const encodedAddress = encodeURIComponent(address);
+            const encodedName = encodeURIComponent(name);
 
             document.getElementById('modalAddress').textContent = address;
-            document.getElementById('naverMapLink').href = `nmap://search?query=${encodedAddress}`;
-            document.getElementById('kakaoMapLink').href = `kakaomap://search?q=${encodedAddress}`;
-            document.getElementById('googleMapLink').href = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+            
+            // 내비게이션 앱별 URL Scheme 설정
+            document.getElementById('tmapLink').href = `tmap://search?name=${encodedName}`;
+            document.getElementById('kakaoNaviLink').href = `kakaonavi-sdk://search?q=${encodedName}`;
+            document.getElementById('googleMapLink').href = `https://www.google.com/maps/search/?api=1&query=${encodedName}`;
             
             document.getElementById('mapModal').classList.remove('hidden');
         }
