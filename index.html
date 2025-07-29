@@ -173,7 +173,7 @@
             <p id="modalAddress" class="text-sm text-gray-600 mb-5"></p>
             <div class="space-y-3">
                 <a id="tmapLink" href="#" target="_blank" class="block w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">티맵</a>
-                <a id="kakaoNaviLink" href="#" target="_blank" class="block w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-4 rounded-lg transition-colors">카카오네비</a>
+                <a id="kakaoMapLink" href="#" target="_blank" class="block w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-4 rounded-lg transition-colors">카카오맵</a>
                 <a id="googleMapLink" href="#" target="_blank" class="block w-full bg-gray-200 hover:bg-gray-800 font-bold py-3 px-4 rounded-lg transition-colors">구글지도</a>
             </div>
             <div class="mt-5 pt-5 border-t">
@@ -209,10 +209,10 @@
 
             document.getElementById('modalAddress').textContent = address;
             
-            // 내비게이션 앱별 URL Scheme 설정
+            // 내비게이션/지도 앱별 URL 설정
             document.getElementById('tmapLink').href = `tmap://search?name=${encodedName}`;
-            // 카카오내비 URL을 공식 웹 길안내 링크로 수정
-            document.getElementById('kakaoNaviLink').href = `https://kakaonavi-wguide.kakao.com/navigate.html?destination=${encodedName}`;
+            // 안정적인 카카오맵 웹 검색 링크로 변경
+            document.getElementById('kakaoMapLink').href = `https://map.kakao.com/link/search/${encodedAddress}`;
             document.getElementById('googleMapLink').href = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
             
             document.getElementById('mapModal').classList.remove('hidden');
