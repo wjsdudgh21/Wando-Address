@@ -93,7 +93,7 @@
                         <div class="text-sm font-bold text-amber-600">점심 식사</div>
                         <h2 class="text-2xl font-bold text-gray-900">대박집</h2>
                         <p class="text-lg text-gray-700 mt-1 clickable" onclick="openMapModal('대박집', '전남 완도군 완도읍 개포로62번길 9-10')">전남 완도군 완도읍 개포로62번길 9-10</p>
-                        <a href="tel:061-555-3690" class="text-base text-gray-600 mt-1 block clickable">� 061-555-3690</a>
+                        <a href="tel:061-555-3690" class="text-base text-gray-600 mt-1 block clickable">📞 061-555-3690</a>
                     </div>
                 </div>
             </div>
@@ -211,8 +211,8 @@
             
             // 내비게이션 앱별 URL Scheme 설정
             document.getElementById('tmapLink').href = `tmap://search?name=${encodedName}`;
-            // 카카오내비 URL 스킴을 'search'로 변경하여 호환성 문제 해결
-            document.getElementById('kakaoNaviLink').href = `kakaonavi-sdk://search?q=${encodedName}`;
+            // 카카오내비 URL을 공식 웹 길안내 링크로 수정
+            document.getElementById('kakaoNaviLink').href = `https://kakaonavi-wguide.kakao.com/navigate.html?destination=${encodedName}`;
             document.getElementById('googleMapLink').href = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
             
             document.getElementById('mapModal').classList.remove('hidden');
